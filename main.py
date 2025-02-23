@@ -13,6 +13,7 @@ while True:
     choice = input("Enter choice: ")
     
     if choice == "1":
+        print("\n\n--- BIKE DETAILS ---")
         for bike in bikes:
             bike.displayDetails()
     elif choice == "2":
@@ -23,8 +24,23 @@ while True:
         customer = Customer(len(customers) + 1, name, contact, email, password)
         customers.append(customer)
         customer.register()
+    elif choice == "3":
+        # Customer.login() pending............
+        print(3)
+    elif choice == "4":
+        #pending.........
+        print(4)
+    elif choice == "5":
+        #pending.........
+        print(5)
+    elif choice == "6":
+        #pending.........
+        print(6)
+    elif choice == "7":
+        #pending.........
+        print(7)
     elif choice == "8":
-        print("Exiting...")
+        print("Why So Soon.........")
         break
     else:
         print("Invalid option! Try again.")
