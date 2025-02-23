@@ -25,20 +25,15 @@ while True:
         customers.append(customer)
         customer.register()
     elif choice == "3":
-        # Customer.login() pending............
-        print(3)
+        print('3')
     elif choice == "4":
-        #pending.........
-        print(4)
+        print('4')
     elif choice == "5":
-        #pending.........
-        print(5)
+        print('5')
     elif choice == "6":
-        #pending.........
-        print(6)
+        print('6')
     elif choice == "7":
-        #pending.........
-        print(7)
+        print('7')
     elif choice == "8":
         print("Why So Soon.........")
         break
