@@ -1,3 +1,4 @@
+from main import customers
 class Customer:
     def __init__(self, customer_id, name, contact, email, password):
         self.customer_id = customer_id
@@ -9,9 +10,14 @@ class Customer:
     def register(self):
         print("Registered Successfully")
     
-    def login(self):
-        print("Login")
-
+    @staticmethod
+    def login(email, password):
+        for customer in customers:
+            if customer.email == email and customer.password == password:
+                print("Login successful!")
+                return True
+        print("Invalid credentials! Try again.")
+        return False
     def viewBikes(self):
         print("Display")
 

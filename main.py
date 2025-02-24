@@ -17,15 +17,41 @@ while True:
         for bike in bikes:
             bike.displayDetails()
     elif choice == "2":
-        name = input("Enter Name: ")
+        firstname = input("Enter First Name: ")
+        while firstname.isalpha() == False:
+            print("Name Should Only Contains Alphabets.")
+            firstname = input("Enter First Name: ")
+        lastname = input("Enter Last Name: ")
+        while lastname.isalpha() == False:
+            print("Name Should Only Contains Alphabets.")
+            lastname = input("Enter Last Name: ")
+        name = firstname+" "+lastname
+        #Fix....👇🏻
         contact = input("Enter Contact: ")
-        email = input("Enter Email: ")
+        while len(contact) != 10 and contact.isnumeric() == False:
+            print("Contact Number Should Only Contains Numbers And Verify Its Of 10 Digit.")
+            contact = input("Enter Contact: ")
+        emailverify = False
+        email = input("Enter Gmail ID: ")
+        while emailverify:
+            if '@gmail.com' in email:
+                emailverify = True
+            else:
+                print('Enter Correct Gmail ID.')
+                email = input("Enter Gmail ID: ")
+        #Fix....👇🏻
         password = input("Enter Password: ")
-        customer = Customer(len(customers) + 1, name, contact, email, password)
+        while len(password) >=8 and password.isalnum() == False:
+            print("Password Should Contain Both Numbers & Alphabets. It Should Be Length Of More Than 8.")
+            password = input("Enter Password: ")
+        customer = Customer(len(customers)+1,name,contact,email,password)
         customers.append(customer)
         customer.register()
+        #Fix....👇🏻
     elif choice == "3":
-        print('3')
+        email,password = input("Enter Email: "),input("Enter Password: ")
+        while Customer.login(email,password) == False:
+            email,password = input("Enter Email: "),input("Enter Password: ")
     elif choice == "4":
         print('4')
     elif choice == "5":
