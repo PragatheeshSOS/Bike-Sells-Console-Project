@@ -13,6 +13,7 @@ class Customer:
         self.contact = input("Enter your contact: ")
         self.email = input("Enter your email: ")
         self.password = input("Create a password: ")
+        self.customer_id = len(Customer.customers) + 1
         Customer.customers.append(self)
         print("Registration successful!")
     
@@ -36,9 +37,9 @@ class Customer:
         for bike in bikes:
             if bike.bike_id == bike_id:
                 if bike.stock >= quantity:
-                    bike.stock -= quantity
-                    print(f"Order placed successfully! Remaining stock: {bike.stock}")
+                    return bike, quantity
                 else:
                     print("Not enough stock available!")
-                return
+                    return None, None
         print("Bike not found!")
+        return None, None
