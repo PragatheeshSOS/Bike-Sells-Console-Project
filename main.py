@@ -12,7 +12,7 @@ admin = Admin()
 customer = Customer()
 
 while True:
-    print("\nWelcome to Bike Rental System")
+    print("\n----- HAPPY TO SEE YOU HERE -----")
     print("1. Admin Login\n2. Customer Registration\n3. Customer Login\n4. Exit")
     choice = input("Enter your choice: ")
     
