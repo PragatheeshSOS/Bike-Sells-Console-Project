@@ -3,7 +3,7 @@ from order import Order
 
 class Admin:
     admins = [
-        {"email": "admin@example.com", "password": "admin123"}
+        {"email": "admin@gmail.com", "password": "admin123"}
     ]
 
     def login(self):
