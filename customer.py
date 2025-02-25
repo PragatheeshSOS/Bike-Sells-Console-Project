@@ -1,19 +1,45 @@
+# customer.py
 class Customer:
-    def __init__(self, customer_id, name, contact, email, password):
-        self.customer_id = customer_id
-        self.name = name
-        self.contact = contact
-        self.email = email
-        self.password = password
+    customers = []
+    
+    def __init__(self):
+        self.customer_id = None
+        self.name = ""
+        self.contact = ""
+        self.email = ""
+        self.password = ""
     
     def register(self):
-        print("Registered Successfully")
+        self.name = input("Enter your name: ")
+        self.contact = input("Enter your contact: ")
+        self.email = input("Enter your email: ")
+        self.password = input("Create a password: ")
+        Customer.customers.append(self)
+        print("Registration successful!")
     
     def login(self):
-        print("Login")
-
-    def viewBikes(self):
-        print("Display")
-
-    def placeOrder(self):
-        print("Place Order")
+        email = input("Enter your email: ")
+        password = input("Enter your password: ")
+        for customer in Customer.customers:
+            if customer.email == email and customer.password == password:
+                print("Login successful!")
+                return True
+        print("Invalid credentials!")
+        return False
+    
+    def view_bikes(self, bikes):
+        for bike in bikes:
+            bike.display_details()
+    
+    def place_order(self, bikes):
+        bike_id = int(input("Enter Bike ID to order: "))
+        quantity = int(input("Enter quantity: "))
+        for bike in bikes:
+            if bike.bike_id == bike_id:
+                if bike.stock >= quantity:
+                    bike.stock -= quantity
+                    print(f"Order placed successfully! Remaining stock: {bike.stock}")
+                else:
+                    print("Not enough stock available!")
+                return
+        print("Bike not found!")
